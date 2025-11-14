@@ -45,7 +45,7 @@ app.get('/project1', async (req, res) => {
       return res.status(500).json({ message: 'Database not initialized', error: e.message });
     }
 
-    const data = await db.collection('contacts').find({}).toArray();
+    const data = await db.collection('users').find({}).toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(data);
   } catch (err) {

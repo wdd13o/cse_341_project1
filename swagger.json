@@ -6,14 +6,14 @@
     "version": "1.0.0"
   },
   "host": "cse-341-project1-yt5c.onrender.com",
-  "basePath": "/",
+  "basePath": "/api/contacts",
   "schemes": [
     "https"
   ],
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "description": "Get all contacts",
         "produces": [
           "application/json"
         ],
@@ -27,7 +27,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new contact",
         "parameters": [
           {
             "name": "body",
@@ -67,86 +67,9 @@
         }
       }
     },
-    "/user/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/users": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/users/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-   
     "/{id}": {
       "get": {
-        "description": "",
+        "description": "Get a single contact by ID",
         "produces": [
           "application/json"
         ],
@@ -174,7 +97,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update a contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -220,7 +143,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a contact by ID",
         "parameters": [
           {
             "name": "id",

@@ -128,12 +128,11 @@ const update = async (req, res) => {
     }
     const userId = new ObjectId(id);
     const user = { firstName, lastName, email, favoriteColor, birthday };
-  const response = await mongodb.getDatabase().collection(COLLECTION).replaceOne({ _id: userId }, user);
-    if (response.modifiedCount > 0) {
-      return res.status(204).send();
-    } else {
-      return res.status(500).json(response.error || 'Some error occurred while updating the user.');
+    const response = await mongodb.getDatabase().collection(COLLECTION).replaceOne({ _id: userId }, user);
+    if (response.matchedCount === 0) {
+      return res.status(404).json({ message: 'Contact not found' });
     }
+    return res.status(204).send();
   } catch (err) {
     console.error('update error', err);
     res.status(500).json({ message: 'Error updating contact', error: err.message });

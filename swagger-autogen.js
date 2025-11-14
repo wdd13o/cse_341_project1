@@ -5,13 +5,13 @@ const doc = {
     title: 'Users Api',
     description: 'Users Api'
   },
-  host: process.env.RENDER_HOST || 'localhost:3000',
-  // For local testing prefer http so Swagger UI won't try https://localhost
-  schemes: ['http']
+  host: 'cse-341-project1-yt5c.onrender.com',
+  basePath: '/api/contacts',
+  schemes: ['https']
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js', './routes/users.js'];
+const endpointsFiles = ['./routes/users.js'];
 
 // this will generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
